@@ -3,3 +3,4 @@
 
 # Ignorar otros archivos temporales o binarios (opcional)
 *.zpr
+*.exe

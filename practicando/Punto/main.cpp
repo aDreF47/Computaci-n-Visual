@@ -1,25 +1,26 @@
-#include <GL/gl.h>
-#include <GL/glut.h>
+#include <GL/glut.h> // Biblioteca para funciones OpenGL
 
-// Función para dibujar un triángulo
 void display() {
-	glClear(GL_COLOR_BUFFER_BIT); // Limpia el buffer de color
-	glBegin(GL_TRIANGLES);        // Comienza a dibujar un triángulo
-	glColor3f(1.0f, 0.0f, 0.0f); glVertex2f(-0.5f, -0.5f); // Vértice 1: rojo
-	glColor3f(0.0f, 1.0f, 0.0f); glVertex2f( 0.5f, -0.5f); // Vértice 2: verde
-	glColor3f(0.0f, 0.0f, 1.0f); glVertex2f( 0.0f,  0.5f); // Vértice 3: azul
-	glEnd();                      // Termina el dibujo
-	glutSwapBuffers();            // Intercambia los buffers
-
+	glClear(GL_COLOR_BUFFER_BIT); // Limpia la pantalla
+	
+	glColor3f(1.0, 0.0, 0.0); // Establece el color del punto (rojo)
+	glPointSize(10.0); // Tamaño del punto en píxeles
+	
+	glBegin(GL_POINTS); // Comienza a dibujar puntos
+	glVertex2f(0.0f, 0.0f); // Coordenadas del punto (0,0) en el espacio 2D
+	glVertex2f(-0.5f, 0.8f); // Coordenadas del punto (0,0) en el espacio 2D
+	glEnd(); // Termina el dibujo
+	
+	glFlush(); // Asegura que se renderice el contenido
 }
 
 int main(int argc, char** argv) {
-	glutInit(&argc, argv);                      // Inicializa GLUT
-	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB); // Configura el modo de visualización
-	glutInitWindowSize(800, 600);               // Tamaño de la ventana
-	glutCreateWindow("Primer Triángulo");       // Título de la ventana
-	glutDisplayFunc(display);                   // Función de renderizado
-	glClearColor(0.1f, 0.1f, 0.1f, 1.0f);       // Color de fondo
-	glutMainLoop();                             // Inicia el loop principal
+	glutInit(&argc, argv);
+	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB); // Modo de ventana
+	glutInitWindowSize(400, 400); // Tamaño de la ventana
+	glutCreateWindow("Dibujar un Punto en OpenGL"); // Título de la ventana
+	glutDisplayFunc(display); // Función de renderizado
+	glClearColor(0.0, 0.0, 0.0, 1.0); // Color de fondo (negro)
+	glutMainLoop(); // Entra en el bucle principal de GLUT
 	return 0;
 }
