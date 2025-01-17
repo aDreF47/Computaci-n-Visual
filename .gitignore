@@ -1,0 +1,5 @@
+# Ignorar la carpeta de depuración
+debug.w32/
+
+# Ignorar otros archivos temporales o binarios (opcional)
+*.zpr
